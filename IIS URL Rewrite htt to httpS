@@ -1,0 +1,13 @@
+###########################Se debe instalar el plugin URL Rewrite#####################
+        
+        <rewrite>
+            <rules>
+                <rule name="http to https" stopProcessing="true">
+                    <match url="(.*)" />
+                    <conditions>
+                        <add input="{HTTPS}" pattern="^OFF$" />
+                    </conditions>
+                    <action type="Redirect" url="https://{HTTP_HOST}/{REQUEST_URI}" />
+                </rule>
+            </rules>
+        </rewrite>
