@@ -1,0 +1,16 @@
+https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504
+#crear el servicio
+redis-server.exe --service-install redis.windows.conf --loglevel verbose --service-name APPXXX_UAT_Redis
+redis-server.exe --service-install redis.windows.conf --loglevel verbose --service-name APPXXX_INT_Redis
+redis-server.exe --service-install redis.windows.conf --loglevel verbose --service-name APPXXX_DEV_Redis
+
+#Modificar el archivo redis.windows.conf y setear puertos y password para cada ambiente
+port 6379
+requirepass APPXXX-UAT
+
+port 6378
+requirepass APPXXX-INT
+
+port 6377
+requirepass APPXXX-DEV
+
